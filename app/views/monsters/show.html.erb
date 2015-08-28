@@ -1,0 +1,20 @@
+<div>
+  <h4><%= @monster.name %></h4>
+</div>
+  <ul>
+    <li><strong>Power:</strong> <%= @monster.power %></li>
+     <li><strong>Type:</strong> <%= @monster.type %></li>
+     <div>
+      <% if monster_team.present? %>
+        <li><strong>Team:</strong> <%= monster_team.name %></li>
+      <% else %>
+        <li>
+          <div id="monster-team"></div> <div id="add-team"><strong><%= link_to 'Add to a team', get_team_user_monster_path, remote: true %><div>
+        </li>
+      <% end %>
+    </div>
+  </ul>
+  <div id="team-form" style="display:none;"></div>
+<div>
+  <%= link_to 'Back', user_monsters_path(@monster.team.user) %>
+</div>

@@ -1,0 +1,13 @@
+<div>
+  <h4>Your Team:</h4>
+</div>
+<div>
+  <div>
+    <ul>
+      <li><strong>Name:</strong> <%= @team.name %></li>
+      <li><strong>Type:</strong> <%= @team.status %></li>
+      <li><strong>User:</strong> <%= @team.user_id %></li>
+    </ul>
+  </div>
+  <%= link_to 'Back', user_teams_path(@team.user) %>
+</div>

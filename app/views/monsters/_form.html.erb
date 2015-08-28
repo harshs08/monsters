@@ -1,0 +1,30 @@
+<%= form_for [@user, @monster] do |f| %>
+  <% if @monster.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@monster.errors.count, "error") %> prohibited this monster from being saved:</h2>
+
+      <ul>
+      <% @monster.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :power %>
+    <%= f.text_field :power %>
+    <br>
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+    <br>
+    <%= f.hidden_field :team_id, value: @team.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
